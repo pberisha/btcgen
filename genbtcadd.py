@@ -9,11 +9,12 @@ import sys
 
 startTime = datetime.now()
 num_addresses = sys.argv[1]
-filename = sys.argv[2]
+filename = str(sys.argv[3])
+filepath = str(sys.argv[2])
 # Set the number of addresses to generate
 
 # Open a file for writing
-with open(filename, 'w') as f:
+with open(filepath + filename, 'w') as f:
   # Generate and write each address to the file
   for i in range(int(num_addresses)):
     prvkey_dec   = keys.gen_private_key(curve.P256)
