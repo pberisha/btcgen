@@ -7,7 +7,7 @@ import os.path
 from pathlib import Path
 
 Path('BTCGenerator.lock').touch()
-genpool = 2000000
+genpool = 20000000
 file_path = "../btcgen_data/"
 while(True):
     filename = str(uuid.uuid4()) + ".csv"
