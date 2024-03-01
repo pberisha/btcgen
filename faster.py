@@ -17,7 +17,6 @@ def worker(start, end):
 
   # Use secp256k1 to convert the private keys to addresses
   thread_addresses = np.array([ice.privatekey_to_address(2, True, dec) for dec in private_keys])
-  print(thread_addresses)
 
   return thread_addresses
 
@@ -39,4 +38,4 @@ with concurrent.futures.ProcessPoolExecutor() as executor:
     addresses.extend(task.result())
 
 # Write the addresses to a file
-np.savetxt('addresses_1M_with_ProcessPool.txt', addresses, fmt='%s')
+np.savetxt('addresses_1M_with_ProcessPool.txt', addresses, private_keys, fmt='%s')
