@@ -8,14 +8,14 @@ import uuid
 import sys
 
 startTime = datetime.now()
-num_addresses = int(sys.argv[1])
+num_addresses = sys.argv[1]
 filename = "../btcgen_data/" + str(uuid.uuid4()) + num_addresses + ".csv"
 # Set the number of addresses to generate
 
 # Open a file for writing
 with open(filename, 'w') as f:
   # Generate and write each address to the file
-  for i in range(num_addresses):
+  for i in range(int(num_addresses)):
     prvkey_dec   = keys.gen_private_key(curve.P256)
     addr1 = ice.privatekey_to_address(0, True, prvkey_dec)
     addr2 = ice.privatekey_to_address(0, False, prvkey_dec)
