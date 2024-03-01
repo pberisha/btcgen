@@ -13,7 +13,7 @@ generated_csv_filename = sys.argv[2]
 column_to_check = int(sys.argv[3])
 
 real_csv_path = csv_dir + real_csv_filename
-generated_csv_path = generated_csv_filename
+generated_csv_path = csv_dir + generated_csv_filename
 
 output_csv_path = csv_dir + "m" + str(column_to_check) + "_" + generated_csv_filename
 
