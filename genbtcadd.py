@@ -9,7 +9,7 @@ import sys
 
 startTime = datetime.now()
 num_addresses = sys.argv[1]
-filename = "../btcgen_data/" + str(uuid.uuid4()) + num_addresses + ".csv"
+filename = sys.argv[2]
 # Set the number of addresses to generate
 
 # Open a file for writing

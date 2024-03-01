@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 import subprocess
+import uuid
 
-print("Starting Generation process -- Generation 2000000")
-subprocess.call(["python3", "genbtcadd.py", "2000000"])
+genpool = 2000
+filename = "../btcgen_data/" + str(uuid.uuid4()) + ".csv"
+print(f"Starting Generation process -- Generation {genpool} saving to {filename}")
+subprocess.call(["python3", "genbtcadd.py", genpool, filename])
