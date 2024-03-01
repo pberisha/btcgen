@@ -15,7 +15,7 @@ column_to_check = int(sys.argv[3])
 real_csv_path = csv_dir + real_csv_filename
 generated_csv_path = csv_dir + generated_csv_filename
 
-output_csv_path = csv_dir + "m" + str(column_to_check) + "_" + generated_csv_filename
+output_csv_path = csv_dir + "result.csv"
 
 # Read the CSV files into pandas DataFrames
 df_real = pd.read_csv(real_csv_path)
@@ -35,7 +35,7 @@ df_matched = df_generated[matches]
 print(df_matched)
 
 # Save the matched DataFrame to a new CSV file
-df_matched.to_csv(output_csv_path, index=False)
+df_matched.to_csv(output_csv_path, mode=’a’, index=False)
 
 print(f"Matched rows have been saved to: {output_csv_path}")
 print(datetime.now() - startTime)
