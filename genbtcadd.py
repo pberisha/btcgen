@@ -5,9 +5,10 @@ from datetime import datetime
 
 import secp256k1 as ice
 import uuid
+import sys
 
 startTime = datetime.now()
-num_addresses = sys.argv[1]
+num_addresses = int(sys.argv[1])
 filename = "../btcgen_data/" + str(uuid.uuid4()) + num_addresses + ".csv"
 # Set the number of addresses to generate
 
