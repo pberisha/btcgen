@@ -23,5 +23,5 @@ with open(filename, 'w') as f:
     addr4 = ice.privatekey_to_address(2, True, prvkey_dec)
     priv = ice.btc_pvk_to_wif(prvkey_dec, False)
     f.write(f'{addr2},{addr1},{addr3},{addr4},{priv}\n')
-print("Script took " + datetime.now() - startTime)
+print(datetime.now() - startTime)
 
