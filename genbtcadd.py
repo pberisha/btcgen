@@ -7,9 +7,9 @@ import secp256k1 as ice
 import uuid
 
 startTime = datetime.now()
-filename = "../btcgen_data/" + str(uuid.uuid4()) + "-20mil.csv"
+num_addresses = sys.argv[1]
+filename = "../btcgen_data/" + str(uuid.uuid4()) + num_addresses + ".csv"
 # Set the number of addresses to generate
-num_addresses = 20000000
 
 # Open a file for writing
 with open(filename, 'w') as f:
@@ -22,5 +22,5 @@ with open(filename, 'w') as f:
     addr4 = ice.privatekey_to_address(2, True, prvkey_dec)
     priv = ice.btc_pvk_to_wif(prvkey_dec, False)
     f.write(f'{addr2},{addr1},{addr3},{addr4},{priv}\n')
-print(datetime.now() - startTime)
+print("Script took " + datetime.now() - startTime)
 
