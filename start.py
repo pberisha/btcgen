@@ -9,7 +9,7 @@ from pathlib import Path
 Path('BTCGenerator.lock').touch()
 genpool = 2000
 file_path = "../btcgen_data/"
-while(True)
+while(True):
     filename = str(uuid.uuid4()) + ".csv"
     print(f"Starting Generation process -- Generation {genpool} saving to {filename}")
     subprocess.call(["python3", "genbtcadd.py", str(genpool), file_path, filename])
