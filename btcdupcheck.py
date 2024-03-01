@@ -32,7 +32,6 @@ matches = df_generated[g_column_to_compare].isin(df_real[r_column_to_compare])
 
 # Filter the generated DataFrame to only include matched rows
 df_matched = df_generated[matches]
-print(df_matched)
 
 # Save the matched DataFrame to a new CSV file
 df_matched.to_csv(output_csv_path, mode='a', index=False, header=False)
