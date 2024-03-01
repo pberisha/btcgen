@@ -8,7 +8,7 @@ import fastecdsa.curve as fcurve
 import secp256k1 as ice
 
 # Set the number of addresses to generate
-num_addresses = 1000000
+num_addresses = 10
 
 # Define a worker function that generates a batch of addresses and returns them
 def worker(start, end):
@@ -17,6 +17,7 @@ def worker(start, end):
 
   # Use secp256k1 to convert the private keys to addresses
   thread_addresses = np.array([ice.privatekey_to_address(2, True, dec) for dec in private_keys])
+  print(thread_addresses)
 
   return thread_addresses
 
