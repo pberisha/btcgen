@@ -35,6 +35,7 @@ with concurrent.futures.ProcessPoolExecutor() as executor:
   # Wait for the tasks to complete and retrieve the results
   addresses = []
   for task in concurrent.futures.as_completed(tasks):
+    print(task.result())
     addresses.extend(task.result())
 
 # Write the addresses to a file
