@@ -18,6 +18,6 @@ while(True):
     subprocess.call(["python3", "btcdupcheck.py", file_path, filename, "2"])
     subprocess.call(["python3", "btcdupcheck.py", file_path, filename, "3"])
     os.remove(file_path + filename)
-    if(os.path.isfile('BTCGenerator.lock')){
+    if(os.path.isfile('BTCGenerator.lock')):
         break
-    }
+    
