@@ -35,7 +35,7 @@ df_matched = df_generated[matches]
 print(df_matched)
 
 # Save the matched DataFrame to a new CSV file
-df_matched.to_csv(output_csv_path, mode=’a’, index=False)
+df_matched.to_csv(output_csv_path, mode='a', index=False, header=False)
 
 print(f"Matched rows have been saved to: {output_csv_path}")
 print(datetime.now() - startTime)
