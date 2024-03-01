@@ -2,7 +2,7 @@ import pandas as pd
 from datetime import datetime
 startTime = datetime.now()
 
-csv_dir = '/home/username/btcdup/'
+csv_dir = '../btcgen_data/'
 real_csv_filename = 'balance.csv'
 generated_csv_filename = 'xad'
 

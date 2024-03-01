@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-# 2022/Dec/26, citb0in
+
 from fastecdsa import keys, curve
+from datetime import datetime
+
 import secp256k1 as ice
 import uuid
-from datetime import datetime
+
 startTime = datetime.now()
-filename = str(uuid.uuid4()) + "-20mil.csv"
+filename = "../btcgen_data/" + str(uuid.uuid4()) + "-20mil.csv"
 # Set the number of addresses to generate
 num_addresses = 20000000
 
