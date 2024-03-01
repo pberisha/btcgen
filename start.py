@@ -7,7 +7,7 @@ import os.path
 from pathlib import Path
 
 Path('BTCGenerator.lock').touch()
-genpool = 2000
+genpool = 2000000
 file_path = "../btcgen_data/"
 while(True):
     filename = str(uuid.uuid4()) + ".csv"
@@ -18,6 +18,6 @@ while(True):
     subprocess.call(["python3", "btcdupcheck.py", file_path, filename, "2"])
     subprocess.call(["python3", "btcdupcheck.py", file_path, filename, "3"])
     os.remove(file_path + filename)
-    if(os.path.isfile('BTCGenerator.lock')):
+    if(os.path.isfile('BTCGenerator.lock') == False):
         break
     
