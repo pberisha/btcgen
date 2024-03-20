@@ -26,6 +26,7 @@ for i in range(int(num_addresses)):
     data.append(new_row)
 
 df = pd.DataFrame(data)
-pprint(vars(df))
+pprint(vars(data))
+#pprint(vars(df))
 print("Generated " + num_addresses + " and it took " + str(datetime.now() - startTime))
 
