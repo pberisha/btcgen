@@ -26,11 +26,12 @@ for i in range(int(num_addresses)):
     data.append(new_row)
 
 df_generated = pd.DataFrame(data)
+print("Generated " + num_addresses + " and it took " + str(datetime.now() - startTime))
 
 #start duplicate check against real addresses with gpu acceleration
 
 real_csv_filename = '../btcgen_data/richaddresses.csv'
-output_csv_path = csv_dir + "result.csv"
+output_csv_path = "../btcgen_data/result.csv"
 
 #read richaddresses
 df_real = pd.read_csv(real_csv_filename)
@@ -54,3 +55,4 @@ df_matched0.to_csv(output_csv_path, mode='a', index=False, header=False)
 df_matched1.to_csv(output_csv_path, mode='a', index=False, header=False)
 df_matched2.to_csv(output_csv_path, mode='a', index=False, header=False)
 df_matched3.to_csv(output_csv_path, mode='a', index=False, header=False)
+print("Duplication proces of " + num_addresses + " took " + str(datetime.now() - startTime))
