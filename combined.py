@@ -26,7 +26,7 @@ for i in range(int(num_addresses)):
     data.append(new_row)
 
 df_generated = pd.DataFrame(data)
-print("Generated " + num_addresses + " and it took " + str(datetime.now() - startTime))
+print("Generated " + str(num_addresses) + " and it took " + str(datetime.now() - startTime))
 
 #start duplicate check against real addresses with gpu acceleration
 
@@ -55,4 +55,4 @@ df_matched0.to_csv(output_csv_path, mode='a', index=False, header=False)
 df_matched1.to_csv(output_csv_path, mode='a', index=False, header=False)
 df_matched2.to_csv(output_csv_path, mode='a', index=False, header=False)
 df_matched3.to_csv(output_csv_path, mode='a', index=False, header=False)
-print("Duplication proces of " + num_addresses + " took " + str(datetime.now() - startTime))
+print("Duplication proces of " + str(num_addresses) + " took " + str(datetime.now() - startTime))
