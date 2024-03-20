@@ -22,8 +22,10 @@ for i in range(int(num_addresses)):
     addr3 = ice.privatekey_to_address(1, True, prvkey_dec)
     addr4 = ice.privatekey_to_address(2, True, prvkey_dec)
     priv = ice.btc_pvk_to_wif(prvkey_dec, False)
-    new_row = {addr2, addr1, addr3, addr4, priv}
-    data.append(new_row)
+    data.append({addr2, priv})
+    data.append({addr1, priv})
+    data.append({addr3, priv})
+    data.append({addr4, priv})
 
 df_generated = pd.DataFrame(data)
 print("Generated " + str(num_addresses) + " and it took " + str(datetime.now() - startTime))
@@ -37,22 +39,10 @@ output_csv_path = "../btcgen_data/result.csv"
 df_real = pd.read_csv(real_csv_filename)
 
 r_column_to_compare = df_real.columns[0]
-g_column_to_compare0 = df_generated.columns[0]
-g_column_to_compare1 = df_generated.columns[1]
-g_column_to_compare2 = df_generated.columns[2]
-g_column_to_compare3 = df_generated.columns[3]
+g_column_to_compare = df_generated.columns[0]
 
-matches0 = df_generated[g_column_to_compare0].isin(df_real[r_column_to_compare])
-df_matched0 = df_generated[matches0]
-matches1 = df_generated[g_column_to_compare1].isin(df_real[r_column_to_compare])
-df_matched1 = df_generated[matches1]
-matches2 = df_generated[g_column_to_compare2].isin(df_real[r_column_to_compare])
-df_matched2 = df_generated[matches2]
-matches3 = df_generated[g_column_to_compare3].isin(df_real[r_column_to_compare])
-df_matched3 = df_generated[matches3]
+matches = df_generated[g_column_to_compare].isin(df_real[r_column_to_compare])
+df_matched = df_generated[matches]
 
-df_matched0.to_csv(output_csv_path, mode='a', index=False, header=False)
-df_matched1.to_csv(output_csv_path, mode='a', index=False, header=False)
-df_matched2.to_csv(output_csv_path, mode='a', index=False, header=False)
-df_matched3.to_csv(output_csv_path, mode='a', index=False, header=False)
+df_matched.to_csv(output_csv_path, mode='a', index=False, header=False)
 print("Duplication proces of " + str(num_addresses) + " took " + str(datetime.now() - startTime))
