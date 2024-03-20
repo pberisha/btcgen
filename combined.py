@@ -23,8 +23,7 @@ for i in range(int(num_addresses)):
     addr4 = ice.privatekey_to_address(2, True, prvkey_dec)
     priv = ice.btc_pvk_to_wif(prvkey_dec, False)
     new_row = {addr2, addr1, addr3, addr4, priv}
-    df.append(new_row, ignore_index=True)
-    ## f.write(f'{addr2},{addr1},{addr3},{addr4},{priv}\n')
+    df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
 pprint(vars(df))
 print("Generated " + num_addresses + " and it took " + str(datetime.now() - startTime))
 
