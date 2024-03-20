@@ -9,7 +9,7 @@ from datetime import datetime
 from pprint import pprint
 
 startTime = datetime.now()
-num_addresses = 100 #sys.argv[1]
+num_addresses = sys.argv[1]
 # Set the number of addresses to generate
 
 data = []
