@@ -14,10 +14,8 @@ num_addresses = sys.argv[1]
 
 df = pd.DataFrame()
 
-# Open a file for writing
-with open(filepath + filename, 'w') as f:
-  # Generate and write each address to the file
-  for i in range(int(num_addresses)):
+# Generate and write each address to the file
+for i in range(int(num_addresses)):
     prvkey_dec   = keys.gen_private_key(curve.P256)
     addr1 = ice.privatekey_to_address(0, True, prvkey_dec)
     addr2 = ice.privatekey_to_address(0, False, prvkey_dec)
