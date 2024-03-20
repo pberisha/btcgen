@@ -12,7 +12,7 @@ startTime = datetime.now()
 num_addresses = sys.argv[1]
 # Set the number of addresses to generate
 
-df = pd.DataFrame()
+data = []
 
 # Generate and write each address to the file
 for i in range(int(num_addresses)):
@@ -23,7 +23,9 @@ for i in range(int(num_addresses)):
     addr4 = ice.privatekey_to_address(2, True, prvkey_dec)
     priv = ice.btc_pvk_to_wif(prvkey_dec, False)
     new_row = {addr2, addr1, addr3, addr4, priv}
-    df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
+    data.append(new_row)
+
+df = pd.DataFrame(data)
 pprint(vars(df))
 print("Generated " + num_addresses + " and it took " + str(datetime.now() - startTime))
 
